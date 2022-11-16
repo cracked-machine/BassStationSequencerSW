@@ -11,22 +11,22 @@ set(ARM_TRIPLET     "arm-none-eabi")
 set(X86_TRIPLET     "x86_64-linux-gnu")
 
 # determine which kit was selected by user in VSCode CMake Tools extension
-if(${CMAKE_C_COMPILER} MATCHES "(${ARM_TRIPLET})+") 
+# if(${CMAKE_C_COMPILER} MATCHES "(${ARM_TRIPLET})+") 
 set(TARGET_TYPE ARM)
-elseif(${CMAKE_C_COMPILER} MATCHES "(${X86_TRIPLET})+") 
-set(TARGET_TYPE GNU)
-else() 
-message(FATAL_ERROR "No suitable kit found. Aborting.")
-endif()
+# elseif(${CMAKE_C_COMPILER} MATCHES "(${X86_TRIPLET})+") 
+# set(TARGET_TYPE GNU)
+# else() 
+# message(FATAL_ERROR "No suitable kit found. Aborting.")
+# endif()
 
 # load the appropriate toolchain settings (stm32.cmake or linux.cmake)
-if(TARGET_TYPE STREQUAL ARM)
+# if(TARGET_TYPE STREQUAL ARM)
     include(cmake/stm32.cmake)
-elseif(TARGET_TYPE STREQUAL GNU)
+# elseif(TARGET_TYPE STREQUAL GNU)
     # send pixel data to stdout before its written to the buffer
     #add_compile_definitions(${TARGET} ENABLE_SSD1306_TEST_STDOUT)
-    include(cmake/linux.cmake)    
-endif()
+    # include(cmake/linux.cmake)    
+# endif()
 
 # include(cmake/cppcheck.cmake)
 
@@ -81,7 +81,10 @@ elseif(TARGET_TYPE STREQUAL GNU)
 endif()
 
 # display size info
-add_custom_target(size ALL ${CMAKE_SIZE} ${BUILD_NAME} DEPENDS ${BUILD_NAME})
+
+# add_custom_target(size ALL ${CMAKE_SIZE} ${CMAKE_CURRENT_BINARY_DIR}/${BUILD_NAME} DEPENDS ${BUILD_NAME})
+# add_custom_command(TARGET ${BUILD_NAME} POST_BUILD
+#     COMMAND ${SIZE} /build/${BUILD_NAME})
 
 # objcopy the elf file as a hex file, if using STM32
 if(DEFINED ${HEX_NAME})

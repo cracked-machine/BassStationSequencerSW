@@ -31,6 +31,20 @@ extern "C"
 {
 #endif
 
+void _close(void)
+{
+}
+void _lseek(void)
+{
+
+}
+void _read(void)
+{
+}
+void _write(void)
+{
+}
+
 #define ENABLE_FATFS 0
 
   void error_handler()

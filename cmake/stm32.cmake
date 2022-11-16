@@ -9,7 +9,7 @@ set(CMAKE_SYSTEM_PROCESSOR	arm-eabi)
 # compilers are set by the select kit in vscode (CMAKE_C_COMPILER/CMAKE_CXX_COMPILER)
 set(CMAKE_OBJCOPY			arm-none-eabi-objcopy)
 set(CMAKE_OBJDUMP			arm-none-eabi-objdump)
-set(CMAKE_SIZE			    arm-none-eabi-size)
+set(CMAKE_SIZE			    ${SIZE})
 
 set(TARGET              STM32G0B1KETxN)
 set(ARCH			    armv6-m)

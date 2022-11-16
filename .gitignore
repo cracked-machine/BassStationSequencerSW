@@ -3,3 +3,6 @@ build/
 stm32cube_workspace/G0B1KET6N/Debug/
 stm32cube_workspace/.metadata
 stm32cube_workspace/G0B1KET6N/.settings
+CMakeFiles/
+CMakeCache.txt
+.DS_Store

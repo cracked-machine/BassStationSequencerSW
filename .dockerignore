@@ -1,0 +1,3 @@
+# prevent sending the context to the docker daemon
+*
+
